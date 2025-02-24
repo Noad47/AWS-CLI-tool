@@ -76,7 +76,7 @@ python main.py <resource> <action> [parameters]
 This project is licensed under the MIT License.
 
 ## Contributors
-- [Your Name] - Initial development
+- Noa David - Initial development
 
 ## Future Improvements
 - Implement better error handling.
