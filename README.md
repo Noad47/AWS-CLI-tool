@@ -100,7 +100,7 @@ This project is licensed under the MIT License.
 
 ## Contributors
 
-- NoaDavid47 - Initial development
+- Noa David - Initial development
 
 ## Future Improvements
 
