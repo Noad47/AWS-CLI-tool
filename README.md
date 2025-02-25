@@ -37,7 +37,7 @@ bash
 2. Install dependencies:
    
 bash
-   pip install -r requirements.txt
+   pip install boto3
 
 3. Ensure AWS credentials are configured using aws configure.
 
