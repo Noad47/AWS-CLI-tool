@@ -8,7 +8,7 @@ This Python-based CLI tool allows developers to manage AWS resources, including 
 
 ### EC2 Instances
 
-- **Create**: Supports creating instances of type t3.nano or t4g.nano, with a limit of two running instances at any time.
+- **Create**: Supports creating instances of type `t3.nano` or `t4g.nano`, with a limit of two running instances at any time.
 - **AMI Selection**: Choose between the latest Ubuntu AMI or Amazon Linux AMI.
 - **Manage Instances**: Start and stop instances, but only if they were created through this CLI.
 - **List Instances**: Display a list of all EC2 instances created by this tool.
@@ -29,81 +29,7 @@ This Python-based CLI tool allows developers to manage AWS resources, including 
 ## Installation
 
 1. Clone the repository:
-   
-bash
+
+   ```bash
    git clone <repository-url>
    cd <repository-folder>
-
-2. Install dependencies:
-   
-bash
-   pip install -r requirements.txt
-
-3. Ensure AWS credentials are configured using aws configure.
-
-## Usage
-
-Run the CLI tool using:
-
-bash
-python main.py
-
-
-### Interactive Command Flow
-
-The CLI prompts the user to choose a resource (EC2-instances, S3, or Route53) and then select an action.
-
-#### Example User Flow
-
-- **EC2 Instance Creation**:
-
-  1. Select EC2-instances.
-  2. Choose create.
-  3. Select an instance type (t3.nano or t4g.nano).
-  4. Enter an instance name.
-  5. Select an OS (Ubuntu or Amazon Linux).
-  6. The instance is created.
-
-- **S3 File Upload**:
-
-  1. Select S3.
-  2. Choose upload.
-  3. The CLI lists all available buckets created by the tool.
-  4. Select a bucket and provide a file path.
-  5. The file is uploaded.
-
-- **Route53 Record Management**:
-
-  1. Select Route53.
-  2. Choose create, delete, or manage records.
-  3. Follow prompts to specify the domain and records.
-  4. The hosted zone list updates dynamically based on the user's actions.
-
-## Security Considerations
-
-At this stage, the tool does **not** fully implement all security best practices. Users should be aware of the following:
-
-- AWS credentials **must not** be hardcoded in the project. Users should configure credentials securely using AWS CLI (aws configure).
-- The tool currently does not enforce IAM role-based permissions; users should manually set up IAM policies for least privilege.
-- Logging and monitoring for security audits are not yet implemented but are recommended for production environments.
-
-## Project Structure
-
-- main.py: Entry point of the CLI, prompting users and calling functions from resource modules.
-- ec2.py: Contains EC2-related functions (launching, starting, stopping, listing instances).
-- s3.py: Handles S3 operations (creating buckets, listing, uploading files).
-- route53.py: Manages Route 53 DNS operations and maintains a JSON file to track created/deleted hosted zones.
-
-## License
-
-This project is licensed under the MIT License.
-
-## Contributors
-
-- Noa David - Initial development
-
-## Future Improvements
-
-- Implement better error handling.
-- Add support for additional AWS resources.
-- Improve security implementation, including IAM role-based permissions and logging.
