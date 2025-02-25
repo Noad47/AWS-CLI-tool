@@ -32,14 +32,14 @@ This Python-based CLI tool allows developers to manage AWS resources, including 
    
 bash
    git clone <repository-url>
-   cd <repository-folder>
+   cd cd AWS-CLI-tool
 
 2. Install dependencies:
    
 bash
    pip install boto3
 
-3. Ensure AWS credentials are configured using aws configure.
+3. Ensure AWS credentials are configured using - aws configure.
 
 ## Usage
 
