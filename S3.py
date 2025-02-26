@@ -16,11 +16,13 @@ def creating_s3(name_it,access):
 
         if access == "private":
             s3.create_bucket(Bucket=bucket_name)
+            print(f"The bucket '{bucket_name}' was created successfully!")
         elif access == "public":
             approval = input("are u sure u want to create public bucket (yes/no): ").lower().strip()
             if approval == "yes":
                 s3.create_bucket(Bucket=bucket_name)
                 s3.delete_public_access_block(Bucket=bucket_name)
+                print(f"The bucket '{bucket_name}' was created successfully!")
             elif approval == "no":
                 return
     except:
