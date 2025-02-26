@@ -143,9 +143,10 @@ def starting_instance():
 
 
 
+
 def listing():
     all_instances_cli = {}
-    instances = ec2.instances.filter(Filters=[{'Name':'tag:CreatedBy', 'Values': ['CLI']}])
+    instances = ec2.instances.filter(Filters=[{'Name':'tag:CreatedBy', 'Values': ['CLI']}, {'Name': 'tag:owner', 'Values': ['noadavid']}])
     for instance in instances:
         # print(instance.instance_id)
         ids = instance.instance_id
