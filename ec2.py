@@ -74,7 +74,6 @@ def launch_instance(type_of_ec2, ami, name_of_instance):
 
 
 def stopping_instance():
-
     test1 = ec2.instances.filter(Filters=[{'Name': 'instance-state-name', 'Values': ['running']}, {'Name': 'tag:CreatedBy', 'Values': ['CLI']}])
     running_list = {}
     for instance in test1:
@@ -119,6 +118,14 @@ def starting_instance():
             if i["Key"] == "Name":
                 names_of_instances = i["Value"]
                 stopped_list[names_of_instances] = ids, types
+
+    instances = ec2.instances.filter(
+        Filters=[{'Name': 'instance-state-name', 'Values': ['running']}, {'Name': 'tag:CreatedBy', 'Values': ['CLI']}])
+    count = len(list(instances))
+    print("You have already "f"{count} instances running.")
+    if count == 2:
+        print("can't create more than 2 instances")
+        return
 
     if len(stopped_list) > 0:
         print("These are all the stopped instances that were created through the CLI:")
